@@ -1,0 +1,15 @@
+on:
+  schedule:
+  - cron: '0 10 * * *'
+
+jobs:
+  single-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: bcanseco/github-contribution-graph-action@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_EMAIL: im.codename@gmail.com
+        MIN_COMMITS_PER_DAY: 0
+        MAX_COMMITS_PER_DAY: 35
+        INCLUDE_WEEKENDS: false
